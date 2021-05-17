@@ -29,13 +29,13 @@ if(arr.length===2){
     csv()
     .fromFile(csvFilePath)
     .then((jsonObj)=>{
-        fs.watchFile(jsonFilePath, (err,data)=>{
+        fs.writeFile(jsonFilePath,csvFilePath, (err,data)=>{
             console.log("JSON file saved at: hello.json")
             process.exit
         })
     })
-    .catch((err)=>console.log(err))
-}
+/*     .catch((err)=>console.log(err))
+ */}
 
  
 // Async / await usage

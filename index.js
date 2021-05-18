@@ -18,9 +18,9 @@ const convertCSVToJSON = async(path, destinationPath) => {
         // wird in andere Datei gespeichert
         await writeFile(destinationPath, jsonString);
 
-        console.log(`JSON file saved at:`, destinationPath);
+        console.log(`JSON file saved at: ${destinationPath}`);
     } catch (err) {
-        console.log('Something went wrong');
+        console.log(`Something went wrong, could not write ${path} to: ${destinationPath}!`);
     }
 
 }

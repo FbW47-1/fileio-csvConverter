@@ -7,16 +7,22 @@ const writeFile = promisify(fs.writeFile);
 
 
 const convertCSVToJSON = async(path, destinationPath) => {
-    // Datei konvertieren
-    const jsonArray = await csv().fromFile(path);
 
-    // array in str umwandeln
-    const jsonString = JSON.stringify(jsonArray);
+    try {
+        // Datei konvertieren
+        const jsonArray = await csv().fromFile(path);
 
-    // wird in andere Datei gespeichert
-    await writeFile(destinationPath, jsonString);
+        // array in str umwandeln
+        const jsonString = JSON.stringify(jsonArray);
 
-    console.log(`JSON file saved at:`, destinationPath);
+        // wird in andere Datei gespeichert
+        await writeFile(destinationPath, jsonString);
+
+        console.log(`JSON file saved at:`, destinationPath);
+    } catch (err) {
+        console.log('Something went wrong');
+    }
+
 }
 
 
